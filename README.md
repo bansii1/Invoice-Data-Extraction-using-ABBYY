@@ -10,7 +10,10 @@ Following figures give explanation of the process.
 This is sample invoice
 ![alt text](https://raw.githubusercontent.com/bansii1/Invoice-Data-Extraction-/master/sample.jpg)
 
+
 Part of the invoice is selected as shown below,
+
+
 ![alt text](https://raw.githubusercontent.com/bansii1/Invoice-Data-Extraction-/master/partOfinvoice.png)
 
 The output data file contains result as,
