@@ -1,3 +1,10 @@
+'''
+This code is used to perform data extraction from images using OCR techniques.
+User is prompted to draw a bounding box for the part of image that he/she wants to extract data from.
+The OCR result is written to a text file.
+'''
+
+
 import cv2
 import os
 import pytesseract
@@ -65,34 +72,6 @@ def get_ipt(img_path):
 	
 	cv2.imshow("Binary",imCrop)
 
-	#Line detection
-	'''	
-	lines = cv2.HoughLinesP(temp,rho=6,theta=np.pi / 60,threshold=200,lines=np.array([]),minLineLength=10,maxLineGap=25)
-
-	if lines is None:
-            return
-	temp1 = np.copy(temp)
-	line_img = np.zeros((temp1.shape[0],temp1.shape[1],3),dtype=np.uint8)
-	for line in lines:
-		for x1, y1, x2, y2 in line:
-			cv2.line(line_img, (x1, y1), (x2, y2), (255,255,255), 3)
-	temp1 = cv2.addWeighted(temp, 0.8, temp1, 1.0, 0.0)
-	
-	whiteBG = np.ones((512,512,3), np.uint8)
-	
-	lines = cv2.HoughLines(temp,1,np.pi/180,10)
-	for rho,theta in lines[:100]:
-		a = np.cos(theta)
-		b = np.sin(theta)
-		x0 = a*rho
-		y0 = b*rho
-		x1 = int(x0 + 1000*(-b))
-		y1 = int(y0 + 1000*(a))
-		x2 = int(x0 - 1000*(-b))
-		y2 = int(y0 - 1000*(a))
-
-		cv2.line(img,(x1,y1),(x2,y2),(100,100,50),5)
-	'''
 	result=pytesseract.image_to_string(imCrop, lang="eng")
 
 	file_name = os.path.basename(img_path).split('.')[0]
