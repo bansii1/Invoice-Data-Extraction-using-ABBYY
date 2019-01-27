@@ -39,8 +39,8 @@ class AbbyyOnlineSdk:
 	# register at http://cloud.ocrsdk.com/Account/Register
 	# More info on getting your application id and password at
 	# http://ocrsdk.com/documentation/faq/#faq3
-	ApplicationId = "Accobots Invoice Processing"
-	Password = "va5GyLYJQv42gfzWW2zebcls"
+	ApplicationId = "Put your aplication name"
+	Password = "put your password here"
 	Proxies = {}
 
 	def process_image(self, file_path, settings):
